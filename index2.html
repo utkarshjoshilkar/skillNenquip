@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heavy Equipment Operators Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .service-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+        .service-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .service-item h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .service-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .service-item a:hover {
+            color: #007BFF;
+        }
+        @media (max-width: 768px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Heavy Equipment Operators</h1>
+        <div class="service-grid">
+            <div class="service-item">
+                <a href="construction_vertical.html">
+                    <img src="construction.png" alt="Construction and Renovation Icon">
+                    <h3>Construction and Renovation</h3>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="agriculture_vertical.html">
+                    <img src="agriculture.png" alt="Agriculture Icon">
+                    <h3>Agriculture</h3>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="landscaping_vertical.html">
+                    <img src="landscape.png" alt="Landscaping and Outdoor Projects Icon">
+                    <h3>Landscaping and Outdoor Projects</h3>
+                </a>
+            </div>
+            <div class="service-item">
+                <a href="real_estate_vertical.html">
+                    <img src="real-estate.png" alt="Real Estate and Private Infrastructure Development Icon">
+                    <h3>Real Estate and Private Infrastructure Development</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction and Renovation Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .equipment-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .equipment-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 100%;
+            max-width: 700px;
+            transition: transform 0.2s ease-in-out;
+            text-align: left;
+        }
+        .equipment-item:hover {
+            transform: translateY(-10px);
+        }
+        .equipment-item input {
+            margin-right: 20px;
+        }
+        .equipment-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+        .equipment-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .equipment-item p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .back-to-home {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Construction and Renovation Equipment</h1>
+        <form>
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <input type="checkbox" id="excavators" name="equipment" value="Excavators">
+                    <img src="excavator.png" alt="Excavator Icon">
+                    <div>
+                        <h3>Excavators</h3>
+                        <p>Used for digging, trenching, and demolition.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="backhoes" name="equipment" value="Backhoes">
+                    <img src="backhoe.png" alt="Backhoe Icon">
+                    <div>
+                        <h3>Backhoes</h3>
+                        <p>Versatile machines for digging, lifting, and grading.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="cranes" name="equipment" value="Cranes">
+                    <img src="crane.png" alt="Crane Icon">
+                    <div>
+                        <h3>Cranes</h3>
+                        <p>Essential for lifting and moving heavy materials.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="bulldozers" name="equipment" value="Bulldozers">
+                    <img src="bulldozer.png" alt="Bulldozer Icon">
+                    <div>
+                        <h3>BullDozers</h3>
+                        <p>Used for pushing and grading large quantities of material.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="loaders" name="equipment" value="Loaders">
+                    <img src="loader.png" alt="Loader Icon">
+                    <div>
+                        <h3>Loaders</h3>
+                        <p>For loading and moving materials like dirt, gravel, and debris.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="pavers" name="equipment" value="Pavers">
+                    <img src="paver.png" alt="Paver Icon">
+                    <div>
+                        <h3>Pavers</h3>
+                        <p>For laying asphalt in road construction and paving projects.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="skid-steer-loaders" name="equipment" value="Skid-Steer Loaders">
+                    <img src="skid_steer_loader.png" alt="Skid-Steer Loader Icon">
+                    <div>
+                        <h3>Skid-Steer Loaders</h3>
+                        <p>Compact machines used for digging and lifting in tight spaces.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="demolition-attachments" name="equipment" value="Demolition Attachments">
+                    <img src="demolition.png" alt="Demolition Attachments Icon">
+                    <div>
+                        <h3>Demolition Attachments</h3>
+                        <p>For breaking down structures and removing debris.</p>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="heavy_equipment_operators.html" class="back-to-home">Back to Heavy Equipment Operators</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumbing Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .services-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .services-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .description-area {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .description-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Plumbing Services</h1>
+        <h2>Overview:</h2>
+        <p>
+            Our expert plumbers offer a comprehensive range of services to handle all your plumbing needs. 
+            From installations and repairs to maintenance and emergency services, we ensure high-quality solutions for your home or business.
+        </p>
+        <h2>Services We Offer:</h2>
+        <form id="plumbingForm">
+            <ul class="services-list">
+                <li>
+                    <input type="checkbox" id="water_supply" name="services[]" value="Water Supply and Drainage Installation">
+                    <label for="water_supply">Water Supply and Drainage Installation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="pipe_repair" name="services[]" value="Pipe Repair and Replacement">
+                    <label for="pipe_repair">Pipe Repair and Replacement</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="leak_detection" name="services[]" value="Leak Detection">
+                    <label for="leak_detection">Leak Detection</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="drain_cleaning" name="services[]" value="Drain Cleaning">
+                    <label for="drain_cleaning">Drain Cleaning</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="toilet_installation" name="services[]" value="Toilet Installation">
+                    <label for="toilet_installation">Toilet Installation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="faucet_installation" name="services[]" value="Faucet Installation">
+                    <label for="faucet_installation">Faucet Installation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="water_heater" name="services[]" value="Water Heater Services">
+                    <label for="water_heater">Water Heater Services</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="emergency_services" name="services[]" value="Emergency Plumbing Services">
+                    <label for="emergency_services">Emergency Plumbing Services</label>
+                </li>
+            </ul>
+            <div class="description-area">
+                <h2>Describe Your Needs:</h2>
+                <textarea id="description" name="description" placeholder="If your specific service is not listed, please describe it here..."></textarea>
+            </div>
+            <button type="button" class="submit-btn" id="proceedButton">Select Service Providers</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('proceedButton').addEventListener('click', function() {
+            const services = Array.from(document.querySelectorAll('input[name="services[]"]:checked'))
+                                  .map(service => service.value)
+                                  .join(',');
+            const description = document.getElementById('description').value;
+            window.location.href = `available_service_providers.html?services=${encodeURIComponent(services)}&description=${encodeURIComponent(description)}`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painter Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .services-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .services-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .description-area {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .description-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Painter Services</h1>
+        <h2>Overview:</h2>
+        <p>
+            Our professional painting services provide high-quality, detailed finishes for all your interior and exterior projects.
+        </p>
+        <h2>Services We Offer:</h2>
+        <form id="painterForm">
+            <ul class="services-list">
+                <li>
+                    <input type="checkbox" id="interior_painting" name="services[]" value="Interior Painting">
+                    <label for="interior_painting">Interior Painting</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="exterior_painting" name="services[]" value="Exterior Painting">
+                    <label for="exterior_painting">Exterior Painting</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="wallpaper_removal" name="services[]" value="Wallpaper Removal">
+                    <label for="wallpaper_removal">Wallpaper Removal</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="drywall_repair" name="services[]" value="Drywall Repair and Preparation">
+                    <label for="drywall_repair">Drywall Repair and Preparation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="staining" name="services[]" value="Wood Staining and Finishing">
+                    <label for="staining">Wood Staining and Finishing</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="faux_finishes" name="services[]" value="Faux Finishes">
+                    <label for="faux_finishes">Faux Finishes</label>
+                </li>
+            </ul>
+            <div class="description-area">
+                <h2>Describe Your Needs:</h2>
+                <textarea id="description" name="description" placeholder="If your specific painting service is not listed, please describe it here..."></textarea>
+            </div>
+            <button type="button" class="submit-btn" id="proceedButton">Proceed to Book</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('proceedButton').addEventListener('click', function() {
+            const services = Array.from(document.querySelectorAll('input[name="services[]"]:checked'))
+                                  .map(service => service.value)
+                                  .join(',');
+            const description = document.getElementById('description').value;
+            window.location.href = `book_service.html?services=${encodeURIComponent(services)}&description=${encodeURIComponent(description)}`;
+        });
+    </script>
+</body>
+</html>

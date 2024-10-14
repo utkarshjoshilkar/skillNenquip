@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscaping and Outdoor Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .equipment-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .equipment-item:hover {
+            transform: translateY(-10px);
+        }
+        .equipment-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .equipment-item h3 {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #333;
+        }
+        .equipment-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .equipment-item input {
+            margin-top: 10px;
+        }
+        .back-to-home {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Landscaping and Outdoor Projects Equipment</h1>
+        <form>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/tractor.png" alt="Tractor Icon">
+                    <h3>Tractors</h3>
+                    <p>Used for various landscaping tasks such as plowing and grading.</p>
+                    <input type="checkbox" id="tractors" name="equipment" value="Tractors">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/skid-steer-loader.png" alt="Skid-Steer Loader Icon">
+                    <h3>Skid-Steer Loaders</h3>
+                    <p>For moving and grading soil, rocks, and other materials.</p>
+                    <input type="checkbox" id="skid-steer-loaders" name="equipment" value="Skid-Steer Loaders">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/excavator.png" alt="Excavator Icon">
+                    <h3>Excavators</h3>
+                    <p>Useful for digging and site preparation for landscaping features.</p>
+                    <input type="checkbox" id="excavators" name="equipment" value="Excavators">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/mini-excavator.png" alt="Mini-Excavator Icon">
+                    <h3>Mini-Excavators</h3>
+                    <p>Compact excavators for smaller, detailed landscaping tasks.</p>
+                    <input type="checkbox" id="mini-excavators" name="equipment" value="Mini-Excavators">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/dump-truck.png" alt="Dump Truck Icon">
+                    <h3>Dump Trucks</h3>
+                    <p>For transporting soil, rocks, and debris.</p>
+                    <input type="checkbox" id="dump-trucks" name="equipment" value="Dump Trucks">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/front-end-loader.png" alt="Front End Loader Icon">
+                    <h3>Front End Loaders</h3>
+                    <p>For moving large quantities of materials.</p>
+                    <input type="checkbox" id="front-end-loaders" name="equipment" value="Front End Loaders">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/mulcher.png" alt="Mulcher Icon">
+                    <h3>Mulchers</h3>
+                    <p>For processing and shredding vegetation.</p>
+                    <input type="checkbox" id="mulchers" name="equipment" value="Mulchers">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/crane-truck.png" alt="Crane Truck Icon">
+                    <h3>Crane Trucks</h3>
+                    <p>For lifting and placing large landscape features.</p>
+                    <input type="checkbox" id="crane-trucks" name="equipment" value="Crane Trucks">
+                </div>
+            </div>
+            <button type="submit" style="padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007BFF; border: none; border-radius: 5px;">Submit</button>
+        </form>
+        <a href="heavy_equipment_operators.html" class="back-to-home">Back to Heavy Equipment Operators</a>
+    </div>
+</body>
+</html>

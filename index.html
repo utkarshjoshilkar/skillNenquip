@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Skilled Workers</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <h1>Booking Skilled Workers and Equipment</h1>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h2>Welcome to Our Booking Platform</h2>
+        <p>Find skilled workers for all your needs.</p>
+        <a href="#services" class="btn">Explore Services</a>
+      </div>
+    </section>
+
+    <section id="services" class="services-section">
+      <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="service">
+          <img
+            src="https://images.pexels.com/photos/6197117/pexels-photo-6197117.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="House Work"
+            class="service-img"
+          />
+          <div class="service-content">
+            <div class="service-icon"><i class="fas fa-home"></i></div>
+            <h3>House Work</h3>
+            <p>
+              Find cleaners, maids, laundry specialists, and organizers for your
+              household needs.
+            </p>
+            <a href="index1.html" class="btn">Book House Work</a>
+          </div>
+        </div>
+
+        <div class="service">
+          <img
+            src="https://images.pexels.com/photos/2131784/pexels-photo-2131784.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Agricultural Work"
+            class="service-img"
+          />
+          <div class="service-content">
+            <div class="service-icon"><i class="fas fa-tractor"></i></div>
+            <h3>Agricultural Work</h3>
+            <p>
+              Hire workers for farm work, crop harvesting, and land preparation.
+            </p>
+            <a href="agriculture_vertical.html" class="btn"
+              >Book Agricultural Work</a
+            >
+          </div>
+        </div>
+
+        <div class="service">
+          <img
+            src="https://images.pexels.com/photos/10202865/pexels-photo-10202865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Construction Work"
+            class="service-img"
+          />
+          <div class="service-content">
+            <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+            <h3>Construction Work</h3>
+            <p>
+              Skilled laborers and construction workers for building,
+              renovation, and repairs.
+            </p>
+            <a href="construction_vertical.html" class="btn"
+              >Book Construction Work</a
+            >
+          </div>
+        </div>
+
+        <div class="service">
+          <img
+            src="https://images.pexels.com/photos/62640/pexels-photo-62640.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Equipment"
+            class="service-img"
+          />
+          <div class="service-content">
+            <div class="service-icon"><i class="fas fa-wrench"></i></div>
+            <h3>Equipment Leasing</h3>
+            <p>
+              Lease equipment like tractors, plows, and harrows for agricultural
+              projects.
+            </p>
+            <a href="equipment_leasing.html" class="btn">Lease Equipment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2>About Us</h2>
+        <p>
+          We provide a platform for booking skilled workers and renting
+          equipment for various needs. Our mission is to make it easy for you to
+          find the right resources for your projects.
+        </p>
+      </div>
+    </section>
+
+    <section id="testimonials" class="testimonials-section">
+      <div class="container">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+          <p>
+            "The service was outstanding! I was able to book a skilled plumber
+            in no time. Highly recommend!"
+          </p>
+          <h4>- John Doe</h4>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Renting equipment has never been easier. The platform is
+            user-friendly and efficient."
+          </p>
+          <h4>- Jane Smith</h4>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form method="post" action="contact.html">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Booking Platform. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

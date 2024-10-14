@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .services-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .services-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .services-list input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .description-area {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .description-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HVAC Services</h1>
+        <h2>Overview:</h2>
+        <p>
+            Keep your home comfortable year-round with our professional HVAC services. 
+            Our experienced technicians provide installation, maintenance, and repair services for heating, ventilation, and air conditioning systems.
+        </p>
+        <h2>Services We Offer:</h2>
+        <form id="hvacForm">
+            <ul class="services-list">
+                <li>
+                    <input type="checkbox" id="hvac_installation" name="services[]" value="HVAC Installation">
+                    <label for="hvac_installation">HVAC Installation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="hvac_repair" name="services[]" value="HVAC Repair">
+                    <label for="hvac_repair">HVAC Repair</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="routine_maintenance" name="services[]" value="Routine Maintenance">
+                    <label for="routine_maintenance">Routine Maintenance</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="duct_cleaning" name="services[]" value="Duct Cleaning">
+                    <label for="duct_cleaning">Duct Cleaning</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="thermostat_installation" name="services[]" value="Thermostat Installation">
+                    <label for="thermostat_installation">Thermostat Installation</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="air_quality_solutions" name="services[]" value="Indoor Air Quality Solutions">
+                    <label for="air_quality_solutions">Indoor Air Quality Solutions</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="emergency_hvac" name="services[]" value="Emergency HVAC Services">
+                    <label for="emergency_hvac">Emergency HVAC Services</label>
+                </li>
+            </ul>
+            <div class="description-area">
+                <h2>Describe Your Needs:</h2>
+                <textarea id="description" name="description" placeholder="If your specific HVAC need is not listed, please describe it here..."></textarea>
+            </div>
+            <button type="button" class="submit-btn" id="proceedButton">Proceed to Book</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('proceedButton').addEventListener('click', function() {
+            const services = Array.from(document.querySelectorAll('input[name="services[]"]:checked'))
+                                  .map(service => service.value)
+                                  .join(',');
+            const description = document.getElementById('description').value;
+            window.location.href = `book_service.html?services=${encodeURIComponent(services)}&description=${encodeURIComponent(description)}`;
+        });
+    </script>
+</body>
+</html>

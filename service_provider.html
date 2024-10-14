@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Registration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px; /* Adjusted width */
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #007bff;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+            text-align: center; /* Center aligned */
+            width: 100%; /* Ensure full width */
+        }
+
+        input, select, textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .dropdown-field {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%; /* Ensure full width */
+        }
+
+        .pricing-container {
+            margin-bottom: 20px;
+            display: flex; /* Center content */
+            flex-direction: column; /* Align in a column */
+            align-items: center; /* Center align items */
+            width: 100%; /* Ensure full width */
+        }
+
+        .document-upload {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .document-upload label {
+            flex: 1 1 45%;
+            margin-right: 10px;
+        }
+
+        .document-upload input {
+            flex: 1 1 45%;
+            margin-left: 10px;
+        }
+
+        .btn-submit {
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .document-upload label, .document-upload input {
+                flex: 1 1 100%;
+                margin: 0;
+            }
+        }
+    </style>
+    <script>
+        function validateForm() {
+            const nameField = document.getElementById("name");
+            const nameValue = nameField.value;
+
+            // Regular expression to allow only letters and spaces
+            const nameRegex = /^[A-Za-z\s'-]+$/;
+
+            if (!nameRegex.test(nameValue)) {
+                alert("Please enter a valid name (letters, spaces, hyphens, and apostrophes are allowed).");
+                nameField.focus();
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Register as a Service Provider</h2>
+    <form action="submit_registration.html" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <!-- Basic Information -->
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" 
+               pattern="^\+?\d{10}$" required maxlength="10" title="Please enter a valid 10-digit phone number.">
+
+        <!-- Dropdown for Area of Expertise -->
+        <div class="dropdown-field">
+            <label for="expertise">Area of Expertise</label>
+            <select id="expertise" name="expertise" required>
+                <option value="" disabled selected>Select your area of expertise</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="HVAC">HVAC</option>
+                <option value="Carpentry">Carpentry</option>
+                <option value="Pest Control">Pest Control</option>
+                <option value="Painting">Painting</option>
+            </select>
+        </div>
+
+        <!-- Pricing Field -->
+        <div class="pricing-container">
+            <label for="pricing">Pricing (per hour)</label>
+            <input type="text" id="pricing" name="pricing" placeholder="Enter your hourly rate" required>
+        </div>
+
+        <!-- Document Upload Section -->
+        <h3 style="text-align: center;">Document Submission</h3>
+        <div class="document-upload">
+            <label for="govt-id">Government-issued ID</label>
+            <input type="file" id="govt-id" name="govt-id" required>
+
+            <label for="address-proof">Address Proof</label>
+            <input type="file" id="address-proof" name="address-proof" required>
+
+            <label for="certificates">Professional Certificates (Mandatory)</label>
+            <input type="file" id="certificates" name="certificates" required> <!-- Made mandatory -->
+        </div>
+
+        <!-- Background Verification Notice -->
+        <p style="text-align: center; font-size: 14px;">
+            By submitting this form, you agree to undergo background verification through a third-party agency.
+        </p>
+
+        <button type="submit" class="btn-submit">Submit Application</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2024 Service Provider Platform | All rights reserved
+</footer>
+
+</body>
+</html>

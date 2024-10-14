@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .total-row td {
+            font-weight: bold;
+        }
+        .payment-methods {
+            margin: 20px 0;
+        }
+        .payment-methods img {
+            width: 50px;
+            margin-right: 15px;
+            vertical-align: middle;
+        }
+        .payment-methods label {
+            font-size: 18px;
+            vertical-align: middle;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Payment Page</h1>
+
+    <!-- Service Summary Table -->
+    <table id="serviceTable">
+        <thead>
+            <tr>
+                <th>Service Name</th>
+                <th>Price (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- This will be populated dynamically based on selected services -->
+        </tbody>
+        <tfoot>
+            <tr class="total-row">
+                <td>Total</td>
+                <td id="totalPrice">₹0</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- Payment Methods -->
+    <h2>Choose Your Payment Method</h2>
+    <div class="payment-methods">
+        <input type="radio" id="upi" name="paymentMethod" value="UPI" checked>
+        <label for="upi"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI">UPI</label><br>
+
+        <input type="radio" id="card" name="paymentMethod" value="Card">
+        <label for="card"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Visa_2014_logo_detail.svg" alt="Credit Card">Credit/Debit Card</label><br>
+
+        <input type="radio" id="netbanking" name="paymentMethod" value="Net Banking">
+        <label for="netbanking"><img src="https://upload.wikimedia.org/wikipedia/commons/4/47/NetBanking_Logo.png" alt="Net Banking">Net Banking</label><br>
+
+        <input type="radio" id="wallet" name="paymentMethod" value="Wallet">
+        <label for="wallet"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Paytm_logo.png" alt="Wallet">Paytm/Other Wallets</label><br>
+    </div>
+
+    <!-- Proceed Button -->
+    <button class="submit-btn" onclick="submitPayment()">Proceed to Pay</button>
+</div>
+
+<script>
+    // Mock data for selected services (this should be passed from the previous page)
+    const selectedServices = [
+        { name: 'Pipe Repair and Replacement', price: 1500 },
+        { name: 'Leak Detection', price: 1200 },
+        { name: 'Drain Cleaning', price: 1000 }
+    ];
+
+    // Populate table with selected services
+    const serviceTableBody = document.querySelector('#serviceTable tbody');
+    const totalPriceElement = document.getElementById('totalPrice');
+    let totalPrice = 0;
+
+    selectedServices.forEach(service => {
+        const row = document.createElement('tr');
+        const serviceNameCell = document.createElement('td');
+        const servicePriceCell = document.createElement('td');
+
+        serviceNameCell.textContent = service.name;
+        servicePriceCell.textContent = '₹' + service.price;
+
+        row.appendChild(serviceNameCell);
+        row.appendChild(servicePriceCell);
+
+        serviceTableBody.appendChild(row);
+
+        totalPrice += service.price;
+    });
+
+    totalPriceElement.textContent = '₹' + totalPrice;
+
+    // Function to handle payment submission
+    function submitPayment() {
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        alert(`Total Amount: ₹${totalPrice}. You chose ${paymentMethod} as your payment method.`);
+        // You can add further actions like redirecting to payment gateway here.
+    }
+</script>
+
+</body>
+</html>

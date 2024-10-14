@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .service-details, .provider-details, .location-details {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        input[type="date"], input[type="time"] {
+            padding: 5px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Review and Confirm Your Service</h1>
+
+        <!-- Display Selected Services -->
+        <div class="service-details">
+            <h2>Selected Services:</h2>
+            <p id="selectedServices">Loading...</p>
+        </div>
+
+        <!-- Display Service Providers -->
+        <div class="provider-details">
+            <h2>Available Service Providers:</h2>
+            <ul id="providerList">Loading...</ul>
+        </div>
+
+        <!-- Input Fields for Location, Date, and Time -->
+        <div class="location-details">
+            <h2>Service Location, Date & Time:</h2>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter your service location" required>
+
+            <label for="serviceDate">Date:</label>
+            <input type="date" id="serviceDate" name="serviceDate" required>
+
+            <label for="serviceTime">Time:</label>
+            <input type="time" id="serviceTime" name="serviceTime" required>
+        </div>
+
+        <!-- Proceed to Payment Button -->
+        <button type="button" class="submit-btn" id="paymentButton">Proceed to Payment</button>
+    </div>
+
+    <script>
+        // Extract the URL parameters (services and description)
+        const urlParams = new URLSearchParams(window.location.search);
+        const services = urlParams.get('services');
+        const description = urlParams.get('description');
+
+        // Display the selected services
+        document.getElementById('selectedServices').textContent = services ? services.split(',').join(', ') : 'No services selected';
+
+        // Fetch service providers based on selected services
+        if (services) {
+            const serviceArray = services.split(',');
+            fetch('get_providers.php?services=' + encodeURIComponent(JSON.stringify(serviceArray)))
+                .then(response => response.json())
+                .then(data => {
+                    const providerList = document.getElementById('providerList');
+                    providerList.innerHTML = ''; // Clear loading text
+
+                    if (data.length > 0) {
+                        data.forEach(provider => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = `${provider.name} - Expertise: ${provider.expertise}`;
+                            providerList.appendChild(listItem);
+                        });
+                    } else {
+                        providerList.innerHTML = '<li>No service providers found for the selected services.</li>';
+                    }
+                })
+                .catch(error => console.error('Error fetching providers:', error));
+        } else {
+            document.getElementById('providerList').textContent = 'No services selected';
+        }
+
+        // Handle the "Proceed to Payment" button
+        document.getElementById('paymentButton').addEventListener('click', function() {
+            // Get the location, date, and time values entered by the user
+            const location = document.getElementById('location').value;
+            const serviceDate = document.getElementById('serviceDate').value;
+            const serviceTime = document.getElementById('serviceTime').value;
+
+            // Validate that all fields are filled
+            if (location && serviceDate && serviceTime) {
+                // Redirect to a mock payment page, passing the necessary parameters
+                window.location.href = 'payment.html?services=' + encodeURIComponent(services) +
+                                        '&description=' + encodeURIComponent(description) +
+                                        '&location=' + encodeURIComponent(location) +
+                                        '&serviceDate=' + encodeURIComponent(serviceDate) +
+                                        '&serviceTime=' + encodeURIComponent(serviceTime);
+            } else {
+                alert("Please fill in all required fields (Location, Date, and Time).");
+            }
+        });
+    </script>
+</body>
+</html>

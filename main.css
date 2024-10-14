@@ -1,0 +1,245 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ddd;
+}
+
+.hero {
+  background: url("https://www.pmmag.com/ext/resources/Issues/2023/11-November/Features/Milwaukee-Tools/01-PM-1123-Milwaukee-Tools-Main-Drain-Plumbing-hand-tool-set.jpg?1700482984");
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2s;
+}
+
+.hero h2 {
+  font-size: 48px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.btn {
+  background-color: #ff5733;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #417f34;
+  transform: scale(1.05);
+}
+
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.services-section {
+  background-color: #f9f9f9;
+}
+
+.services-section .container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.service {
+  flex: 1;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(165, 84, 84, 0.1);
+  transition: transform 0.3s;
+  max-width: 45%;
+  min-width: 300px;
+  position: relative;
+}
+
+.service-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.service-content {
+  padding: 20px;
+}
+
+.service:hover {
+  transform: translateY(-10px);
+}
+
+.service-icon {
+  font-size: 50px;
+  color: #ff5733;
+  margin-bottom: 10px;
+}
+
+.about-section,
+.contact-section,
+.testimonials-section {
+  background-color: #fff;
+}
+
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.testimonial {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.testimonial:hover {
+  transform: translateY(-10px);
+}
+
+.testimonial p {
+  font-size: 18px;
+  margin: 0 0 10px;
+  font-style: italic;
+}
+
+.testimonial h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #ff5733;
+  font-weight: bold;
+}
+
+.contact-section form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section .container {
+    flex-direction: column;
+  }
+
+  .service {
+    max-width: 100%;
+  }
+}

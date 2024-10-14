@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .equipment-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .equipment-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 100%;
+            max-width: 700px;
+            transition: transform 0.2s ease-in-out;
+            text-align: left;
+        }
+        .equipment-item:hover {
+            transform: translateY(-10px);
+        }
+        .equipment-item input {
+            margin-right: 20px;
+        }
+        .equipment-item img {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+        .equipment-item h3 {
+            margin: 0 0 10px 0;
+            font-size: 1em;
+            color: #333;
+        }
+        .equipment-item p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .back-to-home {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agriculture Equipment</h1>
+        <form>
+            <div class="equipment-list">
+                <div class="equipment-item">
+                    <input type="checkbox" id="tractors" name="equipment" value="Tractors">
+                    <img src="tractor.png" alt="Tractor Icon">
+                    <div>
+                        <h3>Tractors</h3>
+                        <p>Essential for plowing, planting, and general farming tasks.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="combine-harvesters" name="equipment" value="Combine Harvesters">
+                    <img src="harvester.png" alt="Combine Harvester Icon">
+                    <div>
+                        <h3>Combine Harvesters</h3>
+                        <p>For harvesting grain crops efficiently.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="plows" name="equipment" value="Plows">
+                    <img src="plow.png" alt="Plow Icon">
+                    <div>
+                        <h3>Plows</h3>
+                        <p>Used for turning over soil in preparation for planting.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="tillers" name="equipment" value="Tillers">
+                    <img src="tiller.png" alt="Tiller Icon">
+                    <div>
+                        <h3>Tillers</h3>
+                        <p>For breaking up soil and preparing it for planting.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="seeders-planters" name="equipment" value="Seeders/Planters">
+                    <img src="seeder.png" alt="Seeder/Planter Icon">
+                    <div>
+                        <h3>Seeders/Planters</h3>
+                        <p>For planting seeds in rows or beds.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="balers" name="equipment" value="Balers">
+                    <img src="haybaler.png" alt="Baler Icon">
+                    <div>
+                        <h3>Balers</h3>
+                        <p>For compressing harvested crops into bales.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="irrigation-systems" name="equipment" value="Irrigation Systems">
+                    <img src="tractorirrigationr.png" alt="Irrigation Systems Icon">
+                    <div>
+                        <h3>Irrigation Systems</h3>
+                        <p>Equipment like pumps and pipes for watering crops.</p>
+                    </div>
+                </div>
+                <div class="equipment-item">
+                    <input type="checkbox" id="cultivators" name="equipment" value="Cultivators">
+                    <img src="cultivator.png" alt="Cultivator Icon">
+                    <div>
+                        <h3>Cultivators</h3>
+                        <p>For preparing soil and controlling weeds.</p>
+                    </div>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <a href="heavy_equipment_operators.html" class="back-to-home">Back to Heavy Equipment Operators</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Equipment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .equipment-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .equipment-item:hover {
+            transform: translateY(-10px);
+        }
+        .equipment-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        .equipment-item h3 {
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #333;
+        }
+        .equipment-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .equipment-item input {
+            margin-top: 10px;
+        }
+        .back-to-home {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-to-home:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agriculture Equipment</h1>
+        <form>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/tractor.png" alt="Tractor Icon">
+                    <h3>Tractors</h3>
+                    <p>Essential for plowing, planting, and general farming tasks.</p>
+                    <input type="checkbox" id="tractors" name="equipment" value="Tractors">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/harvester.png" alt="Combine Harvester Icon">
+                    <h3>Combine Harvesters</h3>
+                    <p>For harvesting grain crops efficiently.</p>
+                    <input type="checkbox" id="combine-harvesters" name="equipment" value="Combine Harvesters">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/plow.png" alt="Plow Icon">
+                    <h3>Plows</h3>
+                    <p>Used for turning over soil in preparation for planting.</p>
+                    <input type="checkbox" id="plows" name="equipment" value="Plows">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/tiller.png" alt="Tiller Icon">
+                    <h3>Tillers</h3>
+                    <p>For breaking up soil and preparing it for planting.</p>
+                    <input type="checkbox" id="tillers" name="equipment" value="Tillers">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/seeder.png" alt="Seeder/Planter Icon">
+                    <h3>Seeders/Planters</h3>
+                    <p>For planting seeds in rows or beds.</p>
+                    <input type="checkbox" id="seeders-planters" name="equipment" value="Seeders/Planters">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/baler.png" alt="Baler Icon">
+                    <h3>Balers</h3>
+                    <p>For compressing harvested crops into bales.</p>
+                    <input type="checkbox" id="balers" name="equipment" value="Balers">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/irrigation.png" alt="Irrigation Systems Icon">
+                    <h3>Irrigation Systems</h3>
+                    <p>Equipment like pumps and pipes for watering crops.</p>
+                    <input type="checkbox" id="irrigation-systems" name="equipment" value="Irrigation Systems">
+                </div>
+                <div class="equipment-item">
+                    <img src="https://img.icons8.com/ios/50/000000/cultivator.png" alt="Cultivator Icon">
+                    <h3>Cultivators</h3>
+                    <p>For preparing soil and controlling weeds.</p>
+                    <input type="checkbox" id="cultivators" name="equipment" value="Cultivators">
+                </div>
+            </div>
+            <button type="submit" style="padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007BFF; border: none; border-radius: 5px;">Submit</button>
+        </form>
+        <a href="heavy_equipment_operators.html" class="back-to-home">Back to Home Page</a>
+    </div>
+</body>
+</html>

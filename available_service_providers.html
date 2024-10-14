@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Service Providers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .service-details, .provider-list {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        .provider {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Service Providers</h1>
+
+        <!-- Display Selected Services -->
+        <div class="service-details">
+            <h2>Selected Services:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                    </tr>
+                </thead>
+                <tbody id="selectedServices">
+                    <tr>
+                        <td>Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Display Available Service Providers -->
+        <div class="provider-list">
+            <h2>Available Service Providers:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Expertise</th>
+                    </tr>
+                </thead>
+                <tbody id="providersContainer">
+                    <tr>
+                        <td colspan="4">Loading...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Proceed to Book Button -->
+        <button type="button" class="submit-btn" id="proceedToBookButton">Proceed to Book</button>
+    </div>
+
+    <script>
+        // Extract the URL parameters (services and description)
+        const urlParams = new URLSearchParams(window.location.search);
+        const services = urlParams.get('services');
+        const description = urlParams.get('description');
+
+        // Display the selected services in a table
+        const selectedServicesTable = document.getElementById('selectedServices');
+        const serviceList = services ? services.split(',').map(service => `<tr><td>${service.trim()}</td></tr>`).join('') : '<tr><td>No services selected</td></tr>';
+        selectedServicesTable.innerHTML = serviceList;
+
+        // Fetch available service providers based on selected services
+        fetch(`fetch_providers.php?services=${encodeURIComponent(services)}`)
+            .then(response => response.json())
+            .then(data => {
+                const providersContainer = document.getElementById('providersContainer');
+                providersContainer.innerHTML = '';
+
+                if (Array.isArray(data) && data.length > 0) {
+                    data.forEach(provider => {
+                        const providerRow = `<tr>
+                            <td>${provider.name}</td>
+                            <td>${provider.email}</td>
+                            <td>${provider.phone}</td>
+                            <td>${provider.expertise}</td>
+                        </tr>`;
+                        providersContainer.innerHTML += providerRow;
+                    });
+                } else {
+                    providersContainer.innerHTML = '<tr><td colspan="4">No providers available for the selected services.</td></tr>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching service providers:', error);
+                document.getElementById('providersContainer').innerHTML = '<tr><td colspan="4">Error fetching service providers.</td></tr>';
+            });
+
+        // Handle the "Proceed to Book" button
+        document.getElementById('proceedToBookButton').addEventListener('click', function() {
+            // Redirect to the booking page, passing the necessary parameters
+            window.location.href = 'book_service.html?services=' + encodeURIComponent(services) + 
+                                   '&description=' + encodeURIComponent(description);
+        });
+    </script>
+</body>
+</html>
